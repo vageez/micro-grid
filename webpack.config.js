@@ -1,6 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-
 const path = require("path");
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
@@ -10,7 +9,7 @@ module.exports = (_, argv) => ({
     publicPath:
       argv.mode === "development"
         ? "http://localhost:8092/"
-        : "https://bellmedia.ca/awegrid", // Production
+        : "https://micro-grid.vercel.app/", // Production
   },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
@@ -53,7 +52,8 @@ module.exports = (_, argv) => ({
       name: "grid",
       filename: "remoteEntry.js",
       remotes: {
-        host: "host@http://localhost:8080/remoteEntry.js",
+        // host: "host@http://localhost:8080/remoteEntry.js",
+        host: "host@https://micro-host-self.vercel.app/remoteEntry.js",
       },
       exposes: {
         "./Grid": "./src/components/Grid",
