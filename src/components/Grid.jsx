@@ -439,7 +439,7 @@ export const Grid = () => {
 
   return (
     <div style={{ border: "1px solid gold", margin: "2px" }}>
-      <h1>Grid App</h1>
+      <h1>Grid MFE App</h1>
       <h2 className="title4 mb-bm-4">{displayTitle}</h2>
       <div
         style={{
